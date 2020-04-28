@@ -9,17 +9,19 @@ void main() => runApp(
             title: Text('Ask me anything'),
             backgroundColor: Colors.blue.shade900,
           ),
-          body: magic8Ball(),
+          body: magicBall(),
         ),
       ),
     );
 
-class magic8Ball extends StatefulWidget {
+// ignore: camel_case_types
+class magicBall extends StatefulWidget {
   @override
-  _magic8BallState createState() => _magic8BallState();
+  _magicBallState createState() => _magicBallState();
 }
 
-class _magic8BallState extends State<magic8Ball> {
+// ignore: camel_case_types
+class _magicBallState extends State<magicBall> {
   int magicBall = 1;
 
   void changeBall() {
@@ -30,6 +32,19 @@ class _magic8BallState extends State<magic8Ball> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
+                changeBall();
+              },
+              child: Image.asset('images/ball$magicBall.png'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
